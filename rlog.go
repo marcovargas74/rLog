@@ -157,6 +157,8 @@ func AppSyslog(syslogpri syslog.Priority, format string, a ...interface{}) {
 		return
 	}
 
+	//TODO  make switch to other level
+
 	//Imprime informacoes na tela como prints
 	info := fmt.Sprintf(format, a...)
 	if AppLogFprintSyslog {
@@ -164,7 +166,7 @@ func AppSyslog(syslogpri syslog.Priority, format string, a ...interface{}) {
 	}
 
 	//SYSLOG INFO
-	if syslogpri == syslog.LOG_INFO {
+	if syslogpri == Info {
 		AppLog.Info(info)
 		return
 	}
@@ -172,6 +174,12 @@ func AppSyslog(syslogpri syslog.Priority, format string, a ...interface{}) {
 	//SYSLOG ERRO
 	if syslogpri == syslog.LOG_ERR {
 		AppLog.Err(info)
+		return
+	}
+
+	//SYSLOG CRIT
+	if syslogpri == Crit {
+		AppLog.Crit(info)
 		return
 	}
 
