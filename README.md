@@ -10,9 +10,9 @@ Remote syslog, can be used in embedded linux like arm cpu.
 go get -u github.com/marcovargas74/rLog
 ```
 
-##Example
+## Example
 
-```
+```go 
 package main
 
 import (
