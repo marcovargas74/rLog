@@ -1,7 +1,18 @@
 # rLog
-remote syslog, can be used in embedded linux like arm cpu.  
-How To Use
+Remote syslog, can be used in embedded linux like arm cpu.  
 
+## Install
+
+- Make sure you have [Go](https://golang.org/doc/install) installed and have set your [GOPATH](https://golang.org/doc/code.html#GOPATH).
+- Install rLog:
+
+```sh
+go get -u github.com/marcovargas74/rLog
+```
+
+##Example
+
+```
 package main
 
 import (
@@ -22,4 +33,4 @@ func main() {
 	rlog.LoggerClose()
 
 }
-
+```
