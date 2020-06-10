@@ -20,7 +20,7 @@ import (
 
 //CertificatePathDefault é o caminho default do certificado
 const (
-	versionPackage = "2019-09-18"
+	versionPackage = "2020-06-10"
 	//Level of Logs
 	Emerg   = syslog.LOG_EMERG
 	Alert   = syslog.LOG_ALERT
@@ -152,6 +152,10 @@ func LoggerClose() {
 
 //AppSyslog mensagem de log Padrao
 func AppSyslog(syslogpri syslog.Priority, format string, a ...interface{}) {
+
+	if AppLogProg == false {
+		return
+	}
 
 	if syslogpri > AppLevel {
 		return
